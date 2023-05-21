@@ -1,8 +1,12 @@
 import React from 'react'
+import Styles from "./contact.item.module.css"
 
-const ContactItem = () => {
+const ContactItem = ({ picture, name }) => {
   return (
-    <div>ContactItem</div>
+    <div className={Styles.contact_item}>
+      <img src={picture} alt={name} />
+      <h3>{name}</h3>
+    </div>
   )
 }
 

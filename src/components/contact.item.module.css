@@ -1,0 +1,13 @@
+.contact_item {
+    display: flex;
+    gap: 20px;
+    padding: 10px;
+
+}
+.contact_item:hover {
+    background-color: #E7E9EB;
+}
+
+.contact_item>img {
+    border-radius: 50%;
+}
