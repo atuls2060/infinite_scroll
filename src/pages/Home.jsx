@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import Styles from "./home.module.css"
 import Navbar from '../components/Navbar'
 import ContactItem from '../components/ContactItem';
 import Loader from '../components/Loader';
@@ -12,7 +13,7 @@ const Home = () => {
   const getList = async () => {
     setLoading(true)
     try {
-      const res = await axios.get(`https://randomuser.me/api/?page=${pageNumber}&results=20`);
+      const res = await axios.get(`https://randomuser.me/api/?page=${pageNumber}&results=40`);
       const data = await res.data
 
       setTimeout(() => {
@@ -54,7 +55,7 @@ const Home = () => {
   return (
     <div>
       <Navbar />
-      <div style={{ paddingTop: "78px" }}>
+      <div className={Styles.contact_list}>
         {
           contactList.map((item, index) => {
             const picture = item.picture.thumbnail
@@ -62,11 +63,11 @@ const Home = () => {
             return <ContactItem key={index} picture={picture} name={name} />
           })
         }
-        {
-          loading && <Loader />
-        }
-      </div>
 
+      </div>
+      {
+        loading && <Loader />
+      }
     </div>
   )
 }
